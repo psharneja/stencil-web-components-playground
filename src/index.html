@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+<style>
+  html {
+    --color-primary:#3b013b;
+    --color-primary-reverse: white;
+  }
+</style>
+    <script type="module" src="/build/stencil-workground.esm.js"></script>
+    <script nomodule src="/build/stencil-workground.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .side-nav ul {
+        list-style: none;
+      }
+      .side-nav li {
+        margin: 1rem 0;
+      }
+      .side-nav a {
+        text-decoration: none;
+        color: #613f00;
+      }
+    </style>
+  </head>
+  <body>
+    <the-stock-price stock-symbol="aapl"></the-stock-price>
+    <the-stock-finder></the-stock-finder>
+    <button
+      style="
+        position: absolute;
+        z-index: 1000;
+        color: white;
+        background-color: black;
+      "
+      id="side-drawer-button"
+    >
+      Open side menu
+    </button>
+    <my-side-drawer titled="main menu">
+      <nav class="side-nav">
+        <ul>
+          <li><a href="https://www.google.com">googly</a></li>
+          <li><a href="https://www.facebook.com">facebooky</a></li>
+        </ul>
+      </nav>
+    </my-side-drawer>
+    <script>
+      let sideDriverButton = document.querySelector("#side-drawer-button");
+      let drawer = document.querySelector("my-side-drawer");
+      sideDriverButton.addEventListener("click", () => {
+        if (!drawer.opened) {
+          // drawer.opened = true;
+          drawer.open();
+        }
+      });
+
+      // const stockFinderEl = document.querySelector('the-stock-finder');
+      // stockFinderEl.addEventListener('thisSymbolSelected', event => {console.log(event)}) 
+    </script>
+  </body>
+</html>
